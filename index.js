@@ -14,7 +14,7 @@ import swaggerDocument from "./swagger.json" assert{ type: "json"};
 const connectDataBase = new mongoDBConnect();
 await connectDataBase.connectDB();
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 const router = Router();
 
