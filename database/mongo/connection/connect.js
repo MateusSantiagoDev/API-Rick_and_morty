@@ -1,6 +1,6 @@
 /* import {config} from "dotenv"; */
 import mongoConnect from "mongoose";
-const {connect} = mongoConnect;
+/* const {connect} = mongoConnect; */
 
 /* if(process.env.NOD_ENV !== "production"){
     config();
@@ -8,6 +8,6 @@ const {connect} = mongoConnect;
 
 export class mongoDBConnect{
     async connectDB(){
-        await connect(process.env.DATABASE_URL);
+        await mongoConnect.connect(process.env.DATABASE_URL);
     };
 };
