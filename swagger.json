@@ -15,7 +15,7 @@
       "description": "DEV API"
     },
     {
-      "url": "",
+      "url": "https://apirickandmortyblue.herokuapp.com/",
       "description": "production API"
     }
   ],
@@ -36,7 +36,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/users"
+                    "$ref": "#components/schemas/users"
                   }
                 }
               }
@@ -68,7 +68,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/users"
+                  "$ref": "#components/schemas/users"
                 }
               }
             }
@@ -85,10 +85,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/users"
+                "$ref": "#components/schemas/users"
               },
               "examples": {
-                "users": {
+                "user": {
                   "value": {
                     "name": "Mateus",
                     "email": "mateus_santiago2.3@outlook.com",
@@ -116,7 +116,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/users"
+                  "$ref": "#components/schemas/users"
                 }
               }
             }
@@ -125,7 +125,7 @@
       }
     },
     "/users/update-user/{id}": {
-      "put": {
+      "patch": {
         "summary": "Edit a user by ID",
         "description": "Route responsible for editing a user by ID",
         "tags": ["users"],
@@ -141,10 +141,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/users"
+                "$ref": "#components/schemas/users"
               },
               "examples": {
-                "users": {
+                "user": {
                   "value": {
                     "name": "Maria",
                     "email": "maria@maria.com",
@@ -172,7 +172,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/users"
+                  "$ref": "#components/schemas/users"
                 }
               }
             }
@@ -217,7 +217,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/users"
+                  "$ref": "#components/schemas/users"
                 },
                 "examples": {
                   "user": {
@@ -257,7 +257,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/characters"
+                    "$ref": "#components/schemas/characters"
                   }
                 }
               }
@@ -289,7 +289,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/characters"
+                  "$ref": "#components/schemas/characters"
                 }
               }
             }
@@ -306,7 +306,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/characters"
+                "$ref": "#components/schemas/characters"
               },
               "examples": {
                 "character": {
@@ -329,7 +329,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/characters"
+                  "$ref": "#components/schemas/characters"
                 }
               }
             }
@@ -338,7 +338,7 @@
       }
     },
     "/characters/update-character/{id}": {
-      "put": {
+      "patch": {
         "summary": "Edit a character by ID",
         "description": "Route responsible for editing a character by ID",
         "tags": ["characters"],
@@ -354,7 +354,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/characters"
+                "$ref": "#components/schemas/characters"
               },
               "examples": {
                 "character": {
@@ -377,7 +377,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/characters"
+                  "$ref": "#components/schemas/characters"
                 }
               }
             }
@@ -403,22 +403,24 @@
             "description": "Bad Request"
           },
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#components/schemas/characters"
+                }
+              }
+            }
           }
         }
       }
     }
     
   },
-  "components": {
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
-      },
+  "components": {    
       "schemas": {
-        "user": {
+        "users": {
           "type": "object",
           "properties": {
             "name": {
@@ -438,7 +440,7 @@
             }
           }
         },
-        "character": {
+        "characters": {
           "type": "object",
           "properties": {
             "name": {
@@ -450,7 +452,7 @@
           }
         }
       }
-    }
+    
   }
   
 }
