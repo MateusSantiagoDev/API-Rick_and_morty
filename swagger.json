@@ -16,7 +16,7 @@
       "description": "DEV API"
     },
     {
-      "url": "http://apirickandmortyblue.herokuapp.com/",
+      "url": "https://apirickandmortyblue.herokuapp.com/",
       "description": "production API"
     }
   ],
