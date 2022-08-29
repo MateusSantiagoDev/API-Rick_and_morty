@@ -1,10 +1,10 @@
-import {config} from "dotenv";
+/* import {config} from "dotenv"; */
 import mongoConnect from "mongoose";
 const {connect} = mongoConnect;
 
-if(process.env.NOD_ENV !== "production"){
+/* if(process.env.NOD_ENV !== "production"){
     config();
-}
+} */
 
 export class mongoDBConnect{
     async connectDB(){
