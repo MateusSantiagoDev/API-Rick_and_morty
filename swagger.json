@@ -296,32 +296,32 @@
             }
           }
         }
-      },
-      "/characters/search": {
-        "get": {
-          "summary": "Search for a character by name",
-          "description": "Route responsible for searching for a character by name",
-          "tags": ["characters"],
-          "parameters": [
-            {
-              "name": "name",
-            "in": "path",
-            "description": "Character name for the search",
-            "required": true
-            }
-          ],
-          "responses": {
-            "400": {
-              "description": "Bad Request"
-            },
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "$ref": "#components/schemas/characters"
-                  }
+      }      
+    },
+    "/characters/search": {
+      "get": {
+        "summary": "Search for a character by name",
+        "description": "Route responsible for searching for a character by name",
+        "tags": ["characters"],
+        "parameters": [
+          {
+            "name": "name",
+          "in": "path",
+          "description": "Character name for the search",
+          "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#components/schemas/characters"
                 }
               }
             }
