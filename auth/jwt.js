@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
-/* import {config} from "dotenv"; */
 
-/* if(process.env.NOD_ENV !== "production"){
+import {config} from "dotenv"; 
+if(process.env.NOD_ENV !== "production"){
     config();
-} */
+} 
 
 export class jwtHelp{
      tokenGenerator(data){

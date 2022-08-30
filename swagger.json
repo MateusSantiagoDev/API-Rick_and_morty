@@ -86,24 +86,9 @@
           "content": {
             "application/json": {
               "schema": {
+                "type": "array",
                 "$ref": "#components/schemas/users"
-              },
-              "examples": {
-                "user": {
-                  "value": {
-                    "name": "Mateus",
-                    "email": "mateus_santiago2.3@outlook.com",
-                    "password": "",
-                    "image": "http://image.com",
-                    "characters": [
-                      {
-                        "name": "Jerry Smith",
-                        "image": "http://imagem.com"
-                      }
-                    ]
-                  }
-                }
-              }
+              }             
             }
           }
         },
@@ -112,15 +97,7 @@
             "description": "Bad Request"
           },
           "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#components/schemas/users"
-                }
-              }
-            }
+            "description": "Created"
           }
         }
       }
@@ -142,24 +119,9 @@
           "content": {
             "application/json": {
               "schema": {
+                "type": "array",
                 "$ref": "#components/schemas/users"
-              },
-              "examples": {
-                "user": {
-                  "value": {
-                    "name": "Maria",
-                    "email": "maria@maria.com",
-                    "password": "",
-                    "image": "http://image.com",
-                    "character": [
-                      {
-                        "name": "Beth Smith",
-                        "image": "http://image.com"
-                      }
-                    ]
-                  }
-                }
-              }
+              }              
             }
           }
         },
@@ -168,15 +130,7 @@
             "description": "Bad Request"
           },
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#components/schemas/users"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -289,7 +243,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
+                  "type": "array",
                   "$ref": "#components/schemas/characters"
                 }
               }
@@ -320,7 +274,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
+                  "type": "array",
                   "$ref": "#components/schemas/characters"
                 }
               }
@@ -338,16 +292,9 @@
           "content": {
             "application/json": {
               "schema": {
+                "type": "array",
                 "$ref": "#components/schemas/characters"
-              },
-              "examples": {
-                "character": {
-                  "value": {
-                    "name": "Rick Sanchez",
-                    "image": "http://image.com"
-                  }
-                }
-              }
+              }             
             }
           }
         },
@@ -356,15 +303,7 @@
             "description": "Bad Request"
           },
           "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#components/schemas/characters"
-                }
-              }
-            }
+            "description": "Created"
           }
         }
       }
@@ -387,15 +326,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#components/schemas/characters"
-              },
-              "examples": {
-                "character": {
-                  "value": {
-                    "name": "Diane Sanchez",
-                    "image": "http://image.com"
-                  }
-                }
               }
+             
             }
           }
         },
@@ -404,15 +336,7 @@
             "description": "Bad Request"
           },
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#components/schemas/characters"
-                }
-              }
-            }
+            "description": "OK"            
           }
         }
       }
@@ -480,7 +404,7 @@
             },
             "image": {
               "type": "string"
-            }
+            } 
           }
         }
       }
