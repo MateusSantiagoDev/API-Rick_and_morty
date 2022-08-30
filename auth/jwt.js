@@ -1,13 +1,13 @@
 import jwt from "jsonwebtoken";
 
-import {config} from "dotenv"; 
+/* import {config} from "dotenv"; 
 if(process.env.NOD_ENV !== "production"){
     config();
-} 
+}  */
 
 export class jwtHelp{
      tokenGenerator(data){
-       const token = jwt.sign( { data }, process.env.SECRET_PASSWORD, {expiresIn: "24h"});
+       const token = jwt.sign( { data }, process.env.SECRET_PASSWORD, {expiresIn: "1h"});
        return token
      }
      verifyToken(token){

@@ -13,11 +13,11 @@ export class authController{
             throw new Error("invalid password");
         }
 
-         const data = {
+         const data = {            
             email: userHash.email,
-            image: userHash.image,
+            password: userHash.password,
          }
-           console.log(data)
+          
           res.status(200).send(this.jwtHelp.tokenGenerator(data));
         } catch (err){
             res.status(401).send(err.message)

@@ -1,4 +1,3 @@
-
 {
   "openapi": "3.0.0",
   "info": {
@@ -88,7 +87,7 @@
               "schema": {
                 "type": "array",
                 "$ref": "#components/schemas/users"
-              }             
+              }
             }
           }
         },
@@ -121,7 +120,7 @@
               "schema": {
                 "type": "array",
                 "$ref": "#components/schemas/users"
-              }              
+              }
             }
           }
         },
@@ -163,6 +162,16 @@
         "sumarry": "user access route",
         "description": "Route responsible for logging in a registered user",
         "tags": ["auth"],
+        "requestBody":{
+          "content": {
+            "application/json": {
+              "schema": {
+                "type":"array",
+                "$ref":"#components/schemas/auth"
+              }
+            }
+          }
+        },
         "responses": {
           "401": {
             "description": "invalid password"
@@ -172,13 +181,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#components/schemas/users"
+                  "$ref": "#components/schemas/auth"
                 },
                 "examples": {
                   "user": {
                     "value": {
                       "email": "mateus@dev.com.br",
-                      "password": 123456
+                      "password": ""
                     }
                   }
                 }
@@ -250,51 +259,54 @@
             }
           }
         }
-      }      
+      }
     },
     "/characters/search": {
       "get": {
         "summary": "Search for a character by name",
         "description": "Route responsible for searching for a character by name",
         "tags": ["characters"],
-        "parameters": [
-          {
-            "name": "name",
-          "in": "path",
-          "description": "Character name for the search",
-          "required": true
+        "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "$ref": "#components/schemas/search"
+            }
           }
-        ],
+        }
+      },
+
         "responses": {
           "400": {
             "description": "Bad Request"
           },
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "$ref": "#components/schemas/characters"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
     },
-    "/characters/create-character": {
+    "/characters/create-character/{id}": {
       "post": {
         "summary": "register a character",
         "description": "Route responsible for registering a character",
         "tags": ["characters"],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user ID for the character update",
+            "required": true
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "array",
-                "$ref": "#components/schemas/characters"
-              }             
+                "$ref": "#components/schemas/create"
+              }
             }
           }
         },
@@ -327,7 +339,6 @@
               "schema": {
                 "$ref": "#components/schemas/characters"
               }
-             
             }
           }
         },
@@ -336,7 +347,7 @@
             "description": "Bad Request"
           },
           "200": {
-            "description": "OK"            
+            "description": "OK"
           }
         }
       }
@@ -372,43 +383,73 @@
         }
       }
     }
-    
   },
-  "components": {    
-      "schemas": {
-        "users": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "email": {
-              "type": "string"
-            },
-            "password": {
-              "type": "string"
-            },
-            "image": {
-              "type": "string"
-            },
-            "characters": {
-              "type": "string"
-            }
+  "components": {
+    "schemas": {
+      "users": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "characters": {
+            "type": "string"
           }
-        },
-        "characters": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "image": {
-              "type": "string"
-            } 
+        }
+      },
+      "characters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      },
+      "create": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      },
+      "search": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "auth": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
           }
         }
       }
-    
+    }
   }
-  
 }
